@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - Platform
-  - 
-  - 
-  - 
+  - IgnoreExplosion
+  - Player
+  - CameraColl
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Default +1
+    uniqueID: 677982827
     locked: 0

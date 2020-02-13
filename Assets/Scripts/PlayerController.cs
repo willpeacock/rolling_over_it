@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         if (CheckForGround()) {
-            Debug.Log("ground found");
             if (Input.GetKeyDown(KeyCode.Space)) {
                 rb.AddForce(Vector2.up * jumpThrust, ForceMode2D.Impulse);
             }
@@ -32,6 +31,9 @@ public class PlayerController : MonoBehaviour {
 
         if (rb.velocity.magnitude <= maxThrustVelocity || Mathf.Sign(rb.velocity.x) != Mathf.Sign(horizontalInput)) {
             rb.AddForce(moveDirection * thrust);
+        }
+        else {
+            Debug.Log("can't add force");
         }
     }
 

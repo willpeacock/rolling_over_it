@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.2d.spriteshape": "3.0.8",
+    "com.unity.2d.spriteshape": "2.1.0-preview.11",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.cinemachine": "2.5.0",
     "com.unity.collab-proxy": "1.2.16",
@@ -11,7 +11,6 @@
     "com.unity.postprocessing": "2.3.0",
     "com.unity.test-framework": "1.1.9",
     "com.unity.textmeshpro": "2.0.1",
-    "com.unity.timeline": "1.2.10",
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
