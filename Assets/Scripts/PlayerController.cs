@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour {
         bool isGrounded = false;
 
         for (int i = -1; i < 2; i++) {
-            Vector3 rayStartPos = new Vector3(transform.position.x + i * circleCollider.radius, transform.position.y, transform.position.z);
-            Vector3 rayEndPos = new Vector3(transform.position.x + i * circleCollider.radius, transform.position.y - distanceToGround, transform.position.z);
+            Vector3 rayStartPos = new Vector3(transform.position.x + i * (circleCollider.radius/1.5f), transform.position.y, transform.position.z);
+            Vector3 rayEndPos = new Vector3(transform.position.x + i * (circleCollider.radius/1.5f), transform.position.y - distanceToGround, transform.position.z);
             Debug.DrawLine(rayStartPos, rayEndPos, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(rayStartPos, Vector2.down, distanceToGround, groundLayerMask);
             if (hit.collider != null) {

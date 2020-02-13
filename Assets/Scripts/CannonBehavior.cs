@@ -6,20 +6,37 @@ public class CannonBehavior : MonoBehaviour {
     public GameObject bulletObject;
     public Transform bulletSpawnPosition;
     public Rigidbody2D parentRB;
+    public Transform playerTransform;
     void Start() {
-        
+        StartCoroutine(FireBulletCo());
     }
 
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
-            BulletBehavior newBullet = Instantiate(bulletObject, bulletSpawnPosition.position, transform.rotation).GetComponent<BulletBehavior>();
-            newBullet.FireBullet(parentRB.velocity.magnitude);
+            FireBullet();
         }
 
 
-        Vector3 mouseScreen = Input.mousePosition;
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(mouseScreen);
+        Vector3 playerPosition = playerTransform.position;
+        Vector2 targetLocation = new Vector2(playerPosition.x, playerPosition.y+2.0f);
 
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(targetLocation.y - transform.position.y, targetLocation.x - transform.position.x) * Mathf.Rad2Deg);
+    }
+
+    void OnBecameVisible() {
+        BulletBehavior newBullet = Instantiate(bulletObject, bulletSpawnPosition.position, transform.rotation).GetComponent<BulletBehavior>();
+        newBullet.FireBullet(parentRB.velocity.magnitude);
+    }
+
+    void FireBullet() {
+        BulletBehavior newBullet = Instantiate(bulletObject, bulletSpawnPosition.position, transform.rotation).GetComponent<BulletBehavior>();
+        newBullet.FireBullet(parentRB.velocity.magnitude);
+    }
+
+    IEnumerator FireBulletCo() {
+        while (isActiveAndEnabled) {
+            yield return new WaitForSeconds(2.0f);
+            FireBullet();
+        }
     }
 }

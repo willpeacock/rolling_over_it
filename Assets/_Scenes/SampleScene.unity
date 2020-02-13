@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -205,20 +206,35 @@ PolygonCollider2D:
       - {x: -47.769783, y: -1.4604342}
       - {x: -46.441944, y: -1.8989189}
       - {x: -45.140423, y: -2.1619911}
-      - {x: -42.89753, y: -2.3831294}
-      - {x: -40.747215, y: -2.4702742}
-      - {x: -38.69653, y: -2.4413018}
-      - {x: -36.7525, y: -2.3140872}
-      - {x: -34.92216, y: -2.1065052}
-      - {x: -33.212574, y: -1.8364325}
-      - {x: -31.630749, y: -1.5217425}
-      - {x: -30.183746, y: -1.1803123}
-      - {x: -28.878592, y: -0.83001643}
-      - {x: -27.722326, y: -0.48873025}
-      - {x: -26.721985, y: -0.17432915}
-      - {x: -25.88461, y: 0.09531146}
-      - {x: -25.21724, y: 0.3023164}
-      - {x: -24.726906, y: 0.42881027}
+      - {x: -44.903957, y: -2.0356808}
+      - {x: -44.73748, y: -1.6159197}
+      - {x: -44.63042, y: -0.9475517}
+      - {x: -44.572216, y: -0.07541901}
+      - {x: -44.552296, y: 0.9556358}
+      - {x: -44.560135, y: 2.100769}
+      - {x: -44.585136, y: 3.3151388}
+      - {x: -44.616768, y: 4.5539026}
+      - {x: -44.644447, y: 5.7722154}
+      - {x: -44.657623, y: 6.9252367}
+      - {x: -44.645733, y: 7.9681225}
+      - {x: -44.59822, y: 8.856031}
+      - {x: -44.504517, y: 9.544119}
+      - {x: -44.35407, y: 9.987544}
+      - {x: -44.13631, y: 10.141461}
+      - {x: -42.271076, y: 9.981686}
+      - {x: -40.417946, y: 9.611058}
+      - {x: -38.5923, y: 9.062223}
+      - {x: -36.8095, y: 8.367818}
+      - {x: -35.084896, y: 7.5604844}
+      - {x: -33.433876, y: 6.672864}
+      - {x: -31.87178, y: 5.7375927}
+      - {x: -30.414001, y: 4.7873144}
+      - {x: -29.075888, y: 3.8546686}
+      - {x: -27.8728, y: 2.9722948}
+      - {x: -26.820114, y: 2.1728332}
+      - {x: -25.933193, y: 1.4889249}
+      - {x: -25.227398, y: 0.9532093}
+      - {x: -24.718096, y: 0.5983268}
       - {x: -24.420652, y: 0.45691776}
       - {x: -22.308004, y: 0.06627027}
       - {x: -20.579727, y: -0.49393755}
@@ -423,15 +439,24 @@ MonoBehaviour:
       corner: 0
     - position: {x: -45.140423, y: -2.1619911, z: 0}
       leftTangent: {x: -6.4313126, y: 0.82720804, z: 0}
-      rightTangent: {x: 11.434219, y: -1.4704642, z: 0}
+      rightTangent: {x: 1.3748665, y: -0.17681074, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
       bevelSize: 0
       spriteIndex: 0
       corner: 0
+    - position: {x: -44.13631, y: 10.141461, z: 0}
+      leftTangent: {x: -1.2746544, y: 0.02891326, z: 0}
+      rightTangent: {x: 9.33086, y: -0.21736073, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
     - position: {x: -24.420652, y: 0.45691776, z: 0}
-      leftTangent: {x: -1.0593421, y: 0.13522065, z: -0}
+      leftTangent: {x: -0.9319649, y: 0.11896151, z: 0}
       rightTangent: {x: 11.5997305, y: -1.4806577, z: 0}
       mode: 1
       height: 1
@@ -545,11 +570,13 @@ MonoBehaviour:
   m_AdaptiveUV: 1
   m_StretchUV: 0
   m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
+  m_EnableTangents: 0
 --- !u!1971053207 &17804285
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -564,6 +591,7 @@ SpriteShapeRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -595,8 +623,8 @@ SpriteShapeRenderer:
   m_Sprites:
   - {fileID: 21300000, guid: de438dd4022f3d7488ba4c3cdf918987, type: 3}
   m_LocalAABB:
-    m_Center: {x: 85.82396, y: -5.5296497, z: 0}
-    m_Extent: {x: 177.21564, y: 12.184845, z: 0}
+    m_Center: {x: 85.82396, y: -3.7865162, z: 0}
+    m_Extent: {x: 177.21564, y: 13.9279785, z: 0}
 --- !u!4 &17804286
 Transform:
   m_ObjectHideFlags: 0
@@ -656,6 +684,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -700,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394296369}
   - component: {fileID: 394296370}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_line_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,6 +764,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -780,7 +810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404265115}
   - component: {fileID: 404265116}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_line_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,6 +845,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -860,7 +891,8 @@ GameObject:
   m_Component:
   - component: {fileID: 437687337}
   - component: {fileID: 437687338}
-  m_Layer: 10
+  - component: {fileID: 437687339}
+  m_Layer: 9
   m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,7 +908,7 @@ Transform:
   m_GameObject: {fileID: 437687336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 28.26, y: 6.53, z: 0}
-  m_LocalScale: {x: 0.19616216, y: 0.19616216, z: 0.19616216}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 1221269540}
   - {fileID: 973027702}
@@ -899,6 +931,23 @@ MonoBehaviour:
     type: 3}
   bulletSpawnPosition: {fileID: 973027702}
   parentRB: {fileID: 590968278}
+  playerTransform: {fileID: 590968281}
+--- !u!58 &437687339
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437687336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.86
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1112,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1251,6 +1301,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1521,6 +1572,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1600,6 +1652,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1715,6 +1768,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1773,7 +1827,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973027702}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_bullet_spawn_location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1804,7 +1858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1068787691}
   - component: {fileID: 1068787692}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_line_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1839,6 +1893,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2039,6 +2094,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2099,7 +2155,7 @@ GameObject:
   - component: {fileID: 1221269540}
   - component: {fileID: 1221269542}
   - component: {fileID: 1221269541}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2245,11 +2301,13 @@ MonoBehaviour:
   m_AdaptiveUV: 1
   m_StretchUV: 0
   m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
+  m_EnableTangents: 0
 --- !u!1971053207 &1221269542
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -2264,6 +2322,7 @@ SpriteShapeRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2376,6 +2435,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2505,6 +2565,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2553,36 +2614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1497107874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1497107875}
-  m_Layer: 9
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1497107875
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497107874}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6314726, y: 8.416979, z: 0}
-  m_LocalScale: {x: 0.089798704, y: 0.089798704, z: 0.089798704}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631843575
 GameObject:
@@ -2643,7 +2674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1718896502
 GameObject:
@@ -2725,6 +2756,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2853,6 +2885,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2899,7 +2932,7 @@ GameObject:
   - component: {fileID: 1957341872}
   - component: {fileID: 1957341874}
   - component: {fileID: 1957341873}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: cannon_outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3041,11 +3074,13 @@ MonoBehaviour:
   m_AdaptiveUV: 1
   m_StretchUV: 0
   m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
+  m_EnableTangents: 0
 --- !u!1971053207 &1957341874
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -3060,6 +3095,7 @@ SpriteShapeRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
