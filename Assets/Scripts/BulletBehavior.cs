@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour {
-    public PointEffector2D explosionEffector;
+    public BulletExplosionBehavior explosionBehavior;
     public LayerMask collideLayerMask;
     public Transform backOfBullet;
     public Rigidbody2D rb;
 
     private bool hasExploded = false;
 
+    // Called once every frame, use for non-physics actions
     void Update() {
         // Get angle based off rigidbody's velocity
         float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
@@ -17,8 +18,8 @@ public class BulletBehavior : MonoBehaviour {
         transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    public void FireBullet(float currentPlayerSpeed, float launchSpeed = 50.0f) {
-        rb.velocity = transform.right * currentPlayerSpeed;
+    public void FireBullet(float launchSpeed = 50.0f) {
+        // transform.right is relative to the player, so this will always be 'forward' for our uses
         rb.AddForceAtPosition(transform.right * launchSpeed, backOfBullet.position, ForceMode2D.Impulse);
     }
 
@@ -38,15 +39,13 @@ public class BulletBehavior : MonoBehaviour {
         // then disable sprites of bullet
         transform.GetChild(0).gameObject.SetActive(false);
 
-        // then enable the explosion force
-        explosionEffector.gameObject.SetActive(true);
+        // then enable the explosion force and display the graphics
+        explosionBehavior.gameObject.SetActive(true);
 
         // wait a bit for explosion force's effect
-        yield return new WaitForFixedUpdate();
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForSeconds(0.2f);
 
-        // then destroy the bullet object
-        explosionEffector.enabled = false;
-        Destroy(gameObject, 0.2f);
+        // then destroy the bullet object along with its explosion
+        Destroy(gameObject);
     }
 }

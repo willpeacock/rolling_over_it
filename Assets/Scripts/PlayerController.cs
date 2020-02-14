@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public float maxThrustVelocity = 50.0f;
     public float distanceToGround = 0.85f;
     public LayerMask groundLayerMask;
+    public Color[] colorStates;
+    public SpriteRenderer outlineColor;
 
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
@@ -18,9 +20,13 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         if (CheckForGround()) {
+            outlineColor.color = colorStates[0];
             if (Input.GetKeyDown(KeyCode.Space)) {
                 rb.AddForce(Vector2.up * jumpThrust, ForceMode2D.Impulse);
             }
+        }
+        else {
+            outlineColor.color = colorStates[1];
         }
     }
 

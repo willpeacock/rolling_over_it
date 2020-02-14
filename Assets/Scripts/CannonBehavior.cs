@@ -7,18 +7,16 @@ public class CannonBehavior : MonoBehaviour {
     public Transform bulletSpawnPosition;
     public Rigidbody2D parentRB;
     public Transform playerTransform;
+    public float bulletFireForce = 100.0f;
     void Start() {
         StartCoroutine(FireBulletCo());
     }
 
     void Update() {
-        if (Input.GetButtonDown("Fire1")) {
-            FireBullet();
-        }
-
-
         Vector3 playerPosition = playerTransform.position;
-        Vector2 targetLocation = new Vector2(playerPosition.x, playerPosition.y+2.0f);
+        float distanceToPlayer = Mathf.Abs(playerPosition.x-transform.position.x);
+        float yOffset = distanceToPlayer / Mathf.Clamp(1.0f / Mathf.Pow(0.07f * distanceToPlayer, 2), 1f, 10.0f);
+        Vector2 targetLocation = new Vector2(playerPosition.x, playerPosition.y+yOffset);
 
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(targetLocation.y - transform.position.y, targetLocation.x - transform.position.x) * Mathf.Rad2Deg);
     }
@@ -30,7 +28,7 @@ public class CannonBehavior : MonoBehaviour {
 
     void FireBullet() {
         BulletBehavior newBullet = Instantiate(bulletObject, bulletSpawnPosition.position, transform.rotation).GetComponent<BulletBehavior>();
-        newBullet.FireBullet(parentRB.velocity.magnitude);
+        newBullet.FireBullet(bulletFireForce);
     }
 
     IEnumerator FireBulletCo() {
