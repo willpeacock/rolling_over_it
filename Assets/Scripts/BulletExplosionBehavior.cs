@@ -50,7 +50,7 @@ public class BulletExplosionBehavior : MonoBehaviour {
                     forceStrength = Mathf.Clamp(forceStrength, 0.0f, maxForceStrength);
                     
                     // add a force with "Impulse" mode on as this is a force applied all at once
-                    collRB.AddForce(explosiveForceDirection * forceStrength, ForceMode2D.Impulse);
+                    collRB.AddForceAtPosition(explosiveForceDirection * forceStrength, transform.position, ForceMode2D.Impulse);
                     hitObjects.Add(coll.gameObject);
                 }
             }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class BulletBehavior : MonoBehaviour {
     public BulletExplosionBehavior explosionBehavior;
     public LayerMask collideLayerMask;
     public Transform backOfBullet;
     public Rigidbody2D rb;
+    public SpriteShapeRenderer bulletColorSR;
 
     private bool hasExploded = false;
 
@@ -21,6 +23,10 @@ public class BulletBehavior : MonoBehaviour {
     public void FireBullet(float launchSpeed = 50.0f) {
         // transform.right is relative to the player, so this will always be 'forward' for our uses
         rb.AddForceAtPosition(transform.right * launchSpeed, backOfBullet.position, ForceMode2D.Impulse);
+    }
+
+    public void SetBulletColor(Color newColor) {
+        bulletColorSR.color = newColor;
     }
 
     void OnTriggerEnter2D(Collider2D coll) {

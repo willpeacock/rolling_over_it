@@ -8,30 +8,32 @@ public class PlayerController : MonoBehaviour {
     public float maxThrustVelocity = 50.0f;
     public float distanceToGround = 0.85f;
     public LayerMask groundLayerMask;
-    public Color[] colorStates;
-    public SpriteRenderer outlineColor;
 
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
+    private PlayerVisualsHandler visualsHandler;
+    private PlayerInput playerInput;
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
+        visualsHandler = GetComponent<PlayerVisualsHandler>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Update() {
         if (CheckForGround()) {
-            outlineColor.color = colorStates[0];
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            visualsHandler.SetPlayerColorsIfNeeded("green");
+            if (playerInput.GetJumpButtonDown()) {
                 rb.AddForce(Vector2.up * jumpThrust, ForceMode2D.Impulse);
             }
         }
         else {
-            outlineColor.color = colorStates[1];
+            visualsHandler.SetPlayerColorsIfNeeded("orange");
         }
     }
 
     void FixedUpdate() {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = playerInput.GetHorizontalInput();
 
         Vector2 moveDirection = new Vector2(horizontalInput, 0);
 
