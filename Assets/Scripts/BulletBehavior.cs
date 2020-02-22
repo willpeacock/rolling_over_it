@@ -9,6 +9,7 @@ public class BulletBehavior : MonoBehaviour {
     public Transform backOfBullet;
     public Rigidbody2D rb;
     public SpriteShapeRenderer bulletColorSR;
+    public AudioSource explosionSound;
 
     private bool hasExploded = false;
 
@@ -32,6 +33,8 @@ public class BulletBehavior : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll) {
         // If the object that the bullet collided with is within the specified layer mask...
         if (!hasExploded && collideLayerMask == (collideLayerMask | (1 << coll.gameObject.layer))) {
+            explosionSound.pitch = Random.Range(0.8f, 1f);
+            explosionSound.Play();
             StartCoroutine(PlayExplosionThenDie());
             hasExploded = true;
         }
@@ -51,7 +54,20 @@ public class BulletBehavior : MonoBehaviour {
         // wait a bit for explosion force's effect
         yield return new WaitForSeconds(0.2f);
 
-        // then destroy the bullet object along with its explosion
-        Destroy(gameObject);
+        // then disable its explosion
+        explosionBehavior.gameObject.SetActive(false);
+
+        // then wait until audio finishes
+        while (explosionSound.isPlaying) {
+            yield return null;
+        }
+
+        // and then destroy the gameObject
+        GameObject.Destroy(gameObject, 0.5f);
+    }
+
+    private bool VisibleByCamera() {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 }

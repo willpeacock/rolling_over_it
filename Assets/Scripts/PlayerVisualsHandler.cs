@@ -42,6 +42,10 @@ public class PlayerVisualsHandler : MonoBehaviour {
         }
     }
 
+    public bool CheckForVisualsGroundedState() {
+        return currentColorType.Equals("green");
+    }
+
     IEnumerator DelayBeforeColorChange(string colorType) {
         yield return new WaitForSeconds(0.1f);
 

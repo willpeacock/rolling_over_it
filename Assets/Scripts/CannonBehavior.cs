@@ -14,9 +14,11 @@ public class CannonBehavior : MonoBehaviour {
     public float bulletFireForce = 100.0f;
 
     private Animator cannonAnim;
+    private AudioSource shootNoise;
     private bool fireBulletCoOn = true;
     void Start() {
         cannonAnim = GetComponent<Animator>();
+        shootNoise = GetComponent<AudioSource>();
         StartCoroutine(FireBulletCo());
     }
 
@@ -38,6 +40,9 @@ public class CannonBehavior : MonoBehaviour {
         BulletBehavior newBullet = Instantiate(bulletObject, bulletSpawnPosition.position, transform.rotation).GetComponent<BulletBehavior>();
         newBullet.SetBulletColor(cannonColorSR.color);
         newBullet.FireBullet(bulletFireForce);
+
+        shootNoise.pitch = Random.Range(0.8f, 1.2f);
+        shootNoise.Play();
     }
 
     private bool VisibleByCamera() {
