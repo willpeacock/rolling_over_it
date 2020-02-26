@@ -137,6 +137,10 @@ public class PlayerController : MonoBehaviour {
         playerCanMove = canMove;
     }
 
+    public void StopRollingSoundIfNeeded() {
+        StartCoroutine(FadeRollingSound());
+    }
+
     private bool CheckForGround() {
         bool isGrounded = false;
 
@@ -157,10 +161,16 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator DelayBeforeMoveEnableCo()  {
         // Wait for the camera to reach the player before enabling movement
-        while (Vector2.Distance(mainCamTransform.position, transform.position) > 1.0f) {
+        while (!VisibleByCamera()) {
             yield return null;
         }
         playerCanMove = true;
+    }
+
+    // Checks if the center of the player's transform is within the bounds of the screen
+    private bool VisibleByCamera() {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 
     IEnumerator DelayBeforeFadeRollingSound(float horizontalInput)  {

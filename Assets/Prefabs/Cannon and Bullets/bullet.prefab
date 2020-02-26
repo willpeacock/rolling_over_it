@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4269274865528698770}
   - component: {fileID: 8511531578309668283}
   m_Layer: 12
-  m_Name: Trail
+  m_Name: bullet_trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,9 +68,9 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -487240613
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
@@ -101,21 +101,21 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.21070407, g: 0.8396226, b: 0.20990565, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
-      key2: {r: 0.11372548, g: 0.48498094, b: 0.94509804, a: 0}
-      key3: {r: 0.9092351, g: 0.9339623, b: 0.23349057, a: 0}
-      key4: {r: 0.9092351, g: 0.9339623, b: 0.23349057, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.8392157, g: 0.21176471, b: 0.27657926, a: 1}
+      key1: {r: 0.8962264, g: 0.6376316, b: 0.33397114, a: 1}
+      key2: {r: 1, g: 0.9989836, b: 0.25943398, a: 0}
+      key3: {r: 0.31025273, g: 0.7924528, b: 0.41284847, a: 0}
+      key4: {r: 0.21933962, g: 0.5142067, b: 0.8773585, a: 0}
+      key5: {r: 0.8301887, g: 0.37201852, b: 0.8260969, a: 0}
+      key6: {r: 0.602627, g: 0.378471, b: 0.764151, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 23708
-      ctime2: 45489
-      ctime3: 65535
-      ctime4: 65535
-      ctime5: 0
-      ctime6: 0
+      ctime1: 11565
+      ctime2: 23130
+      ctime3: 33924
+      ctime4: 44718
+      ctime5: 55705
+      ctime6: 65535
       ctime7: 0
       atime0: 0
       atime1: 65535
@@ -126,7 +126,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 4
+      m_NumColorKeys: 7
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -790,8 +790,8 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 677982827
-  m_SortingLayer: 1
+  m_SortingLayerID: 1389655469
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Color: {r: 0.8584906, g: 0.17412782, b: 0.17412782, a: 0.5882353}
   m_MaskInteraction: 0
@@ -1177,7 +1177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4105927386852127072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05695208, y: 0.05695208, z: 1}
   m_Children: []
   m_Father: {fileID: 5131248432224496538}
@@ -1220,9 +1220,9 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 677982827
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 1389655469
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Color: {r: 0.85882354, g: 0.84479684, b: 0.17254902, a: 0.5882353}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}

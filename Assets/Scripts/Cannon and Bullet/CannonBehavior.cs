@@ -8,15 +8,21 @@ public class CannonBehavior : MonoBehaviour {
     public float timeBetweenFiring = 2.0f;
     public GameObject bulletObject;
     public Transform bulletSpawnPosition;
-    public Rigidbody2D parentRB;
-    public Transform playerTransform;
     public SpriteShapeRenderer cannonColorSR;
-    public float bulletFireForce = 100.0f;
+    public float bulletFireForce = 50.0f;
 
+    private Transform playerTransform;
     private Animator cannonAnim;
     private AudioSource shootNoise;
     private bool fireBulletCoOn = true;
     void Start() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) {
+            playerTransform = player.transform;
+        }
+        else {
+            Debug.LogError("Cannon requires a player object that is tagged 'Player' on its root object");
+        }
         cannonAnim = GetComponent<Animator>();
         shootNoise = GetComponent<AudioSource>();
         StartCoroutine(FireBulletCo());

@@ -45,9 +45,15 @@ public class TheOrbBehavior : MonoBehaviour {
 
     IEnumerator DisplayOrbInstructionCo() {
         // Display instructions until the camera reaches the player
-        while (Vector2.Distance(playerTransform.position, mainCamTransform.position) > 1.0f)  {
+        while (!PlayerVisibleByCamera())  {
             yield return null;
         }
         orbInstructionGraphics.SetActive(false);
+    }
+
+    // Checks if the center of the player's transform is within the bounds of the screen
+    private bool PlayerVisibleByCamera() {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(playerTransform.position);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 }

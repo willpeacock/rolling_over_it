@@ -37,6 +37,7 @@ public class GameBrain : MonoBehaviour {
     public void PlayerPickedUpOrb() {
         // Disable the player's movement and physics, and freeze the camera
         playerController.SetPlayerCanMove(false);
+        playerController.StopRollingSoundIfNeeded();
         playerRB.velocity = Vector2.zero;
         playerRB.isKinematic = true;
         followCam.m_Follow = null;

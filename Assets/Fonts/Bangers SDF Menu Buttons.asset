@@ -68,8 +68,8 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.90909094
-    - _ScaleRatioB: 0.6114178
-    - _ScaleRatioC: 0.39772728
+    - _ScaleRatioB: 0.5677451
+    - _ScaleRatioC: 0.3693182
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -88,7 +88,7 @@ Material:
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
-    - _WeightBold: 0.5
+    - _WeightBold: 0.75
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Bangers alt 2
+  m_Name: Bangers SDF Menu Buttons
   m_EditorClassIdentifier: 
-  hashCode: 1246401285
+  hashCode: -718004695
   material: {fileID: 2100000}
   materialHashCode: -1865135980
   m_Version: 1.1.0
