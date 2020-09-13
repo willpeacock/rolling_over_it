@@ -328,7 +328,7 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 0}
+  m_ShapeTexture: {fileID: 2800000, guid: 64de477e181b7064ab09872efc9cce80, type: 3}
   m_Sprites: []
   m_LocalAABB:
     m_Center: {x: 1.7000694, y: -0.00000023841858, z: 0}
@@ -402,7 +402,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-  m_SpriteShape: {fileID: 0}
+  m_SpriteShape: {fileID: 11400000, guid: 22d3b9f93c5932e4d9e2c49634d7edd8, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -795,7 +795,7 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 0.8584906, g: 0.17412782, b: 0.17412782, a: 0.5882353}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 0}
+  m_ShapeTexture: {fileID: 2800000, guid: 64de477e181b7064ab09872efc9cce80, type: 3}
   m_Sprites: []
   m_LocalAABB:
     m_Center: {x: -1.4070969, y: 0.70523834, z: 0}
@@ -941,7 +941,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 0
-  m_SpriteShape: {fileID: 0}
+  m_SpriteShape: {fileID: 11400000, guid: 22d3b9f93c5932e4d9e2c49634d7edd8, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -1225,7 +1225,7 @@ SpriteShapeRenderer:
   m_SortingOrder: 1
   m_Color: {r: 0.85882354, g: 0.84479684, b: 0.17254902, a: 0.5882353}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 0}
+  m_ShapeTexture: {fileID: 2800000, guid: 64de477e181b7064ab09872efc9cce80, type: 3}
   m_Sprites: []
   m_LocalAABB:
     m_Center: {x: -1.4070969, y: 0.70523834, z: 0}
@@ -1371,7 +1371,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 0
-  m_SpriteShape: {fileID: 0}
+  m_SpriteShape: {fileID: 11400000, guid: 22d3b9f93c5932e4d9e2c49634d7edd8, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
